@@ -2,9 +2,10 @@ import express, { Request, Response } from 'express';
 import simpleGit from 'simple-git';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import getRepoName from './getRepoName.js';
-import idGenerator from './idGenerator.js';
-import getFiles from './getFiles.js';
+import getRepoName from './service/getRepoName.js';
+import idGenerator from './service/idGenerator.js';
+import getFiles from './service/getFiles.js';
+import uploadFiles from './aws/uploadFiles.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -36,7 +37,7 @@ const cloneRepo = async (req: Request, res: Response) => {
         RepoId: id,
         RepoStatus: repoStatus,
         RepoFiles: fileNames.length
-    };
+    });
 };
 
 app.post('/api/deploy', (req,res)=>{

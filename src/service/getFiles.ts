@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 
-export default function getAllFiles(filePath: string): string[] {
+export default function getFiles(filePath: string): string[] {
     const distPath = filePath.replace('src', 'dist');
     if (!fs.existsSync(distPath)) {
         return [];
@@ -11,7 +11,7 @@ export default function getAllFiles(filePath: string): string[] {
     files.forEach((file) => {
         const fullPath = path.join(distPath, file);
         if (fs.statSync(fullPath).isDirectory()) {
-            allFiles = allFiles.concat(getAllFiles(fullPath));
+            allFiles = allFiles.concat(getFiles(fullPath));
         } else {
             allFiles.push(fullPath);
         }
