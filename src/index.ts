@@ -1,16 +1,26 @@
-import express, { Request, Response } from 'express';
 import cloneRepo from './service/cloneRepo.js';
 
-const app = express();
+import express, { Request, Response } from 'express';
+import {createClient} from 'redis';
 
+const subscriber = createClient();
+subscriber.connect();
+
+const app = express();
 app.use(express.json());
 
-//  Server Configuration
 app.listen(3000, () => {
     console.log('Server is running on port 3000');
 });
 
-// Server Handling Endpoint
 app.post('/api/deploy', (req,res)=>{
     cloneRepo(req,res);
 });
+
+app.get("/api/status", async (req, res) => {
+    const id = req.query.id;
+    const response = await subscriber.hGet("status", id as string);
+    res.json({
+        status: response
+    })
+})

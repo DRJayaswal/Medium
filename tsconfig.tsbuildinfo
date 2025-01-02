@@ -1,1 +1,1 @@
-{"root":["./src/index.ts","./src/aws/uploadfile.ts","./src/service/clonerepo.ts","./src/service/getfiles.ts","./src/service/getreponame.ts","./src/service/idgenerator.ts"],"version":"5.7.2"}
+{"root":["./src/index.ts","./src/aws/uploadfile.ts","./src/service/clonerepo.ts","./src/service/getfiles.ts","./src/service/getreponame.ts","./src/service/idgenerator.ts","./src/service/redisclient.ts"],"version":"5.7.2"}

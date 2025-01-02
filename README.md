@@ -16,10 +16,10 @@ This project fetches a GitHub repository from a POST method provided by the user
 
 ## Technologies Used
 
-- React
-- Node.js
-- AWS SQS
-- AWS S3
+- [React](https://en.wikipedia.org/wiki/React_(software))
+- [Node.js](https://en.wikipedia.org/wiki/Node.js)
+- [AWS SQS](https://en.wikipedia.org/wiki/AWS)
+- [AWS S3](https://en.wikipedia.org/wiki/AWS_S3)
 
 ## Getting Started
 
@@ -47,6 +47,22 @@ npm install
 2. Access the frontend in your browser.
 3. Use the provided form to submit a GitHub repository URL.
 4. The backend will handle the rest of the process.
+
+## Environment Variables
+
+Create a [.env](https://en.wikipedia.org/wiki/Environment_variable) file in the root directory and add your AWS and server configuration:
+
+```env
+PORT=3000
+AWS_ACCESS_KEY_ID=your_aws_access_key_id
+AWS_SECRET_ACCESS_KEY=your_aws_secret_access_key
+AWS_ENDPOINT=your_aws_endpoint
+AWS_REGION=your_aws_region
+SQS_QUEUE_URL=your_sqs_queue_url
+AWS_BUCKET_NAME=your_s3_bucket_name
+GITHUB_TOKEN=your_github_token
+```
+
 
 ## Contributing
 
